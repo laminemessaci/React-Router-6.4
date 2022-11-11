@@ -7,6 +7,9 @@ import {
 
 import BlogLayout from './pages/BlogLayout';
 import BlogPostsPage, { loader as blogPostsLoader } from './pages/BlogPosts';
+import DeferredBlogPostPage, {
+  loader as blogSlowPostsLoader,
+} from './pages/DeferredBlogPostPage.jsx';
 import ErrorPage from './pages/Error.jsx';
 import NewPostPage, { action as newPostAction } from './pages/NewPost';
 import PostDetailPage, { loader as blogPostLoader } from './pages/PostDetail';
@@ -18,7 +21,12 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />}>
       <Route index path="/" element={<WelcomePage />} />
       <Route path="/blog" element={<BlogLayout />}>
-        <Route index element={<BlogPostsPage />} loader={blogPostsLoader} />
+        {/* <Route index element={<BlogPostsPage />} loader={blogPostsLoader} /> */}
+        <Route
+          index
+          element={<DeferredBlogPostPage />}
+          loader={blogSlowPostsLoader}
+        />
         <Route
           path=":id"
           element={<PostDetailPage />}
