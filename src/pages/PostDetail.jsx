@@ -5,6 +5,11 @@ import BlogPost from '../components/BlogPost';
 import { getPost } from '../util/api';
 
 function PostDetailPage() {
+  /**
+   * Returns Data coming from loader function declared below
+   *
+   * @return  {[Promise]}  return post
+   */
   const postData = useLoaderData();
   console.log('PostDetails ', postData);
   // const [error, setError] = useState();
