@@ -3,7 +3,7 @@ import { useLoaderData, defer, Await } from 'react-router-dom';
 import Posts from '../components/Posts.jsx';
 import { getSlowPosts } from '../util/api.js';
 
-function DeferredBlogPostPage() {
+function DeferredBlogPosts() {
   const loaderData = useLoaderData();
   return (
     <>
@@ -20,7 +20,7 @@ function DeferredBlogPostPage() {
   );
 }
 
-export default DeferredBlogPostPage;
+export default DeferredBlogPosts;
 
 export async function loader() {
   // return defer({posts: getSlowPosts(), data: await getNotPosts() }); for dashboard for example
